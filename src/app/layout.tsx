@@ -1,4 +1,4 @@
-import "./globals.scss";
+import "./styles.scss";
 import { Montserrat } from "next/font/google";
 
 import NavBar from "@/components/navbar/NavBar";
@@ -19,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} bg-slate-500 dark:text-white`}>
-        <NavBar />
-        <main className="container wrapper">{children}</main>
+        <main className="container wrapper">
+          <NavBar />
+          {children}
+        </main>
         {/* <Footer /> */}
       </body>
     </html>

@@ -1,0 +1,91 @@
+@layer components {
+    .nav-bar {
+        @apply absolute bottom-[10px] left-1/2 -translate-x-1/2 rounded-[30px] px-[1px] py-[1px];
+        // inline-block absolute top-14 left-14
+
+        background: linear-gradient(180deg, rgba(119, 119, 119, 0.5) 0%, rgba(255, 255, 255, 0) 100%),
+            rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.6), 0px 2px 3px 0px rgba(0, 0, 0, 0.12),
+            0px 1px 1px 0px rgba(0, 0, 0, 0.04);
+        backdrop-filter: blur(20px);
+
+        &__title {
+            @apply hidden absolute opacity-0 duration-300 translate-x-10;
+        }
+
+        &__links {
+            @apply flex flex-row items-center gap-[2px];
+        }
+
+        &__link {
+            @apply w-[56px] h-[56px] duration-300 rounded-full flex justify-center items-center relative;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+                &:after {
+                    content: ".";
+                    color: var(--hover-icon-color);
+                    @apply text-base absolute bottom-0 left-[50%] -translate-x-[50%];
+                }
+
+                .nav-bar__icon {
+                    @apply hover:scale-110 duration-300;
+                    filter: invert(86%) sepia(18%) saturate(140%) hue-rotate(186deg) brightness(80%) contrast(83%);
+                }
+
+                .nav-bar__title {
+                    opacity: 1;
+                    transform: translateX(90px);
+                }
+            }
+
+            &.line {
+                &:before {
+                    content: "";
+                    width: 1px;
+                    height: 80%;
+                    opacity: 0.3;
+                    background-color: var(--hover-icon-color);
+                    position: absolute;
+                    left: 0px;
+                    margin-left: -2px;
+                }
+            }
+        }
+
+        &__wrapper {
+            @apply bg-navbar_bg rounded-[30px] px-1 py-[3px];
+        }
+
+        @screen md {
+            &__link {
+                @apply w-[56px] h-[56px];
+            }
+        }
+
+        @screen lg {
+            @apply inline-block absolute top-14 left-14 bottom-auto;
+
+            &__links {
+                @apply flex flex-col items-center gap-[2px];
+            }
+
+            &__link {
+                &.line {
+                    @apply mt-1;
+                    &:before {
+                        content: "";
+                        width: 80%;
+                        height: 1px;
+                        opacity: 0.3;
+                        background-color: var(--hover-icon-color);
+                        position: absolute;
+                        top: -4px;
+                        left: unset;
+                        margin-left: unset;
+                    }
+                }
+            }
+        }
+    }
+}

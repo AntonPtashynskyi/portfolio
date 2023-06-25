@@ -45,7 +45,7 @@ const NavBar = () => {
   return (
     <nav className="nav-bar">
       <div className="nav-bar__wrapper">
-        <ul className="flex flex-col items-center gap-[2px]">
+        <ul className="nav-bar__links">
           {links?.map((link) => (
             <Link
               href={link.url}
