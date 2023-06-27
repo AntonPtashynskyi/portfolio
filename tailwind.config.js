@@ -10,6 +10,7 @@ module.exports = {
     colors: {
       primary_bg: "#464B61",
       navbar_bg: "#3F424D",
+      button_hover: "#5b5f6f",
     },
   },
 };

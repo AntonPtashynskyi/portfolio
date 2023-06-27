@@ -1,7 +1,6 @@
 @layer components {
     .nav-bar {
-        @apply absolute bottom-[10px] left-1/2 -translate-x-1/2 rounded-[30px] px-[1px] py-[1px];
-        // inline-block absolute top-14 left-14
+        @apply absolute top-[10px] right-[10px] rounded-[30px] px-[1px] py-[1px];
 
         background: linear-gradient(180deg, rgba(119, 119, 119, 0.5) 0%, rgba(255, 255, 255, 0) 100%),
             rgba(0, 0, 0, 0.1);
@@ -10,45 +9,23 @@
         backdrop-filter: blur(20px);
 
         &__title {
-            @apply hidden absolute opacity-0 duration-300 translate-x-10;
+            @apply opacity-80 duration-300 translate-x-0 translate-y-0 ml-5 mr-auto;
         }
 
         &__links {
-            @apply flex flex-row items-center gap-[2px];
+            @apply flex flex-col items-center gap-[2px];
         }
 
         &__link {
-            @apply w-[56px] h-[56px] duration-300 rounded-full flex justify-center items-center relative;
+            @apply w-full h-[56px] rounded-full flex justify-center items-center relative self-start px-5;
 
-            &:hover {
-                background: rgba(255, 255, 255, 0.1);
-                &:after {
-                    content: ".";
-                    color: var(--hover-icon-color);
-                    @apply text-base absolute bottom-0 left-[50%] -translate-x-[50%];
-                }
-
-                .nav-bar__icon {
-                    @apply hover:scale-110 duration-300;
-                    filter: invert(86%) sepia(18%) saturate(140%) hue-rotate(186deg) brightness(80%) contrast(83%);
-                }
-
-                .nav-bar__title {
-                    opacity: 1;
-                    transform: translateX(90px);
-                }
-            }
-
-            &.line {
-                &:before {
-                    content: "";
-                    width: 1px;
-                    height: 80%;
-                    opacity: 0.3;
-                    background-color: var(--hover-icon-color);
-                    position: absolute;
-                    left: 0px;
-                    margin-left: -2px;
+            @media (hover: none) {
+                &:active {
+                    &:after {
+                        content: ".";
+                        color: var(--hover-icon-color);
+                        @apply text-base absolute bottom-0 left-[50%] -translate-x-[50%];
+                    }
                 }
             }
         }
@@ -57,20 +34,20 @@
             @apply bg-navbar_bg rounded-[30px] px-1 py-[3px];
         }
 
-        @screen md {
-            &__link {
-                @apply w-[56px] h-[56px];
-            }
-        }
-
         @screen lg {
-            @apply inline-block absolute top-14 left-14 bottom-auto;
+            @apply inline-block absolute top-14 left-14 bottom-auto right-auto;
 
             &__links {
                 @apply flex flex-col items-center gap-[2px];
             }
 
+            &__title {
+                @apply absolute w-[50px] opacity-0 duration-300 translate-x-[50%] ml-5 mr-auto text-[18px];
+            }
+
             &__link {
+                @apply w-[56px] h-[56px]  px-0;
+
                 &.line {
                     @apply mt-1;
                     &:before {
@@ -83,6 +60,27 @@
                         top: -4px;
                         left: unset;
                         margin-left: unset;
+                    }
+                }
+
+                @media (hover: hover) {
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                        &:after {
+                            content: ".";
+                            color: var(--hover-icon-color);
+                            @apply text-base absolute bottom-0 left-[50%] -translate-x-[50%];
+                        }
+
+                        .nav-bar__icon {
+                            @apply hover:scale-110 duration-300;
+                            filter: invert(86%) sepia(18%) saturate(140%) hue-rotate(186deg) brightness(80%)
+                                contrast(83%);
+                        }
+
+                        .nav-bar__title {
+                            @apply block opacity-100 translate-x-[110%];
+                        }
                     }
                 }
             }
