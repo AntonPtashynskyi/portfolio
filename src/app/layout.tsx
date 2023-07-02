@@ -1,9 +1,7 @@
 import "./styles.scss";
 import { Montserrat } from "next/font/google";
 
-import NavBar from "@/components/navbar/NavBar";
-import Footer from "@/components/footer/Footer";
-import Button from "@/components/button/Button";
+import Navigation from "@/components/navigation/Navigation";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -19,11 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} bg-slate-500 dark:text-white`}>
-        <main className="container wrapper">
-          <NavBar />
+      <body className={`${montserrat.className} dark:text-white`}>
+        <Navigation />
+        <main>
           {children}
-          <Button title="Hello world" />
+          {/* <Button title="Hello world" />
+          <Poster title="Poster 1" description="Hello world" /> */}
         </main>
         {/* <Footer /> */}
       </body>

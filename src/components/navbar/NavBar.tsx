@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
+import CloseIcon from "./CloseIcon";
 
 const links = [
   {
@@ -23,7 +24,7 @@ const links = [
   },
   {
     id: 4,
-    title: "About",
+    title: "Linkedin",
     url: "/about",
     iconPath: "/images/svg/linkedin-icon.svg",
   },
@@ -31,21 +32,28 @@ const links = [
     id: 5,
     title: "Contact",
     url: "/contacts",
-    iconPath: "/images/svg/photo-icon.svg",
+    iconPath: "/images/svg/contact-icon.svg",
   },
   {
     id: 6,
     title: "Dashboard",
     url: "/dashboard",
-    iconPath: "/images/svg/ball-icon.svg",
+    iconPath: "/images/svg/profile-icon.svg",
   },
 ];
 
-const NavBar = () => {
+type NavBarProps = {
+  isOpen: boolean;
+  isDesktop: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const NavBar = ({ isOpen, setIsOpen, isDesktop }: NavBarProps) => {
   return (
-    <nav className="nav-bar">
+    <nav className={`nav-bar ${isOpen ? "active" : ""}`}>
       <div className="nav-bar__wrapper">
         <ul className="nav-bar__links">
+          {isDesktop ? <CloseIcon setIsOpen={setIsOpen} /> : ""}
           {links?.map((link) => (
             <Link
               href={link.url}

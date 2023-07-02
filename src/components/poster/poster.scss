@@ -1,0 +1,43 @@
+.poster {
+    @apply w-full max-w-[1280px] mx-auto text-center bg-navbar_bg rounded-[16px] md:rounded-[32px] px-[2px] py-[2px];
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgb(45, 43, 43) 100%);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.6), 0px 3px 8px 0px rgba(0, 0, 0, 0.12),
+        0px 1px 2px 0px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(12px);
+
+    &__wrapper {
+        @apply w-full h-full bg-navbar_bg rounded-[16px] md:rounded-[32px];
+    }
+
+    &__content {
+        @apply px-[5px] py-[5px] h-full;
+    }
+
+    &__title {
+        @apply text-lg md:text-3xl text-white;
+    }
+
+    &__subtitle {
+        @apply text-sm md:text-xl;
+    }
+
+    .image_block {
+        @apply relative block rounded-[16px] md:rounded-[32px] overflow-hidden shadow-inner cursor-pointer duration-200;
+
+        img {
+            transition: all 200ms ease;
+            filter: brightness(0.8);
+            &:hover {
+                transform: scale(1.1);
+                filter: brightness(1);
+            }
+        }
+    }
+
+    .image_desc {
+        @apply absolute top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4;
+    }
+    .description_block {
+        @apply p-[15px] pb-[25px] text-left;
+    }
+}

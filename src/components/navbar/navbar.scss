@@ -1,6 +1,10 @@
 @layer components {
     .nav-bar {
-        @apply absolute top-[10px] right-[10px] rounded-[30px] px-[1px] py-[1px];
+        @apply fixed top-[10px] right-[10px] rounded-[30px] px-[1px] py-[1px] z-40 translate-x-[120%] duration-300 lg:translate-x-[0%];
+
+        &.active {
+            @apply translate-x-[0%];
+        }
 
         background: linear-gradient(180deg, rgba(119, 119, 119, 0.5) 0%, rgba(255, 255, 255, 0) 100%),
             rgba(0, 0, 0, 0.1);
@@ -35,7 +39,7 @@
         }
 
         @screen lg {
-            @apply inline-block absolute top-14 left-14 bottom-auto right-auto;
+            @apply inline-block absolute top-14 left-10 bottom-auto right-auto;
 
             &__links {
                 @apply flex flex-col items-center gap-[2px];

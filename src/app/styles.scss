@@ -3,5 +3,15 @@
 @tailwind utilities;
 
 @import "./globals.scss";
+
+/*Component styles*/
 @import "@/components/navbar/navbar.scss";
 @import "@/components/button/button.scss";
+@import "@/components/poster/poster.scss";
+@import "@/components/menuButton/menuButton.scss";
+@import "@/components/navigation/navigation.scss";
+@import "@/components/contactForm/contactForm.scss";
+
+/*Pages styles*/
+@import "@/app/portfolio/portfolioPage.scss";
+@import "@/app/contacts/contact.scss";

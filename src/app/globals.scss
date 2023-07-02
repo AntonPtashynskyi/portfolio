@@ -6,6 +6,7 @@
   --base-bg-color: #464b61;
   --hover-icon-color: #aaaeb9;
   --text-color: #aaaeb9;
+  --base-dark-color: #2a2c34;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +18,7 @@
     --base-bg-color: #464b61;
     --hover-icon-color: #aaaeb9;
     --text-color: #aaaeb9;
+    --base-dark-color: #2a2c34;
   }
 }
 
@@ -24,7 +26,14 @@ body {
   background: var(--base-bg-color);
   color: var(--text-color);
 }
+.container {
+  max-width: 1280px;
+}
 
 .wrapper {
-  @apply px-4 md:px-8 m-auto;
+  @apply px-6 md:px-32 m-auto;
+}
+
+.section {
+  @apply py-[80px] md:py-[100px];
 }

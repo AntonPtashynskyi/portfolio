@@ -1,0 +1,13 @@
+.contact-form {
+    @apply flex flex-col justify-center gap-4
+     px-4 py-6  max-w-[400px] w-full self-center;
+
+    .contact-input {
+        @apply px-3 py-1 bg-transparent border-[1px] 
+        border-navbar_bg rounded-[20px] w-[100%] placeholder:opacity-90;
+
+        &.textarea {
+            @apply resize-none;
+        }
+    }
+}
