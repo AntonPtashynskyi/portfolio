@@ -32,6 +32,13 @@
                     }
                 }
             }
+
+            &.active {
+                .nav-bar__icon {
+                    @apply hover:scale-110 duration-300;
+                    filter: invert(86%) sepia(18%) saturate(140%) hue-rotate(186deg) brightness(80%) contrast(83%);
+                }
+            }
         }
 
         &__wrapper {

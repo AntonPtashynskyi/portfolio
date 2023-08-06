@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import CloseIcon from "./CloseIcon";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 const links = [
   {
@@ -49,6 +51,8 @@ type NavBarProps = {
 };
 
 const NavBar = ({ isOpen, setIsOpen, isDesktop }: NavBarProps) => {
+  const path = usePathname();
+
   return (
     <nav className={`nav-bar ${isOpen ? "active" : ""}`}>
       <div className="nav-bar__wrapper">
@@ -58,9 +62,11 @@ const NavBar = ({ isOpen, setIsOpen, isDesktop }: NavBarProps) => {
             <Link
               href={link.url}
               key={link.id}
+              onClick={() => setIsOpen(false)}
               className={`nav-bar__link ${
                 link.title === "Contact" ? "line" : ""
-              }`}
+              } 
+              ${path === link.url ? "active" : ""}`}
             >
               <Image
                 alt={link.title}
